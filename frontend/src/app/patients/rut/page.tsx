@@ -18,19 +18,18 @@ const PatientDetailPage: React.FC = () => {
         }
     }, [rut]);
 
-    if (!patient) return <div>Cargando...</div>;
+    if (!patient) return <div>Loading...</div>;
 
     return (
-        <div>
-            <h1>{patient.nombre}</h1>
-            <p>Dirección: {patient.direccion}</p>
-            <p>Teléfono: {patient.telefono}</p>
+        <div className="container mx-auto p-4">
+            <h1 className="text-4xl font-bold mb-4">{patient.nombre}</h1>
+            <p><strong>Dirección:</strong> {patient.direccion}</p>
+            <p><strong>Teléfono:</strong> {patient.telefono}</p>
             <Link href={`/patients/${rut}/edit`}>
-                <button>Editar</button>
+                <span className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-700">Edit</span>
             </Link>
         </div>
     );
 };
 
 export default PatientDetailPage;
-

@@ -14,19 +14,19 @@ const PatientsPage: React.FC = () => {
     }, []);
 
     return (
-        <div>
-            <h1>Pacientes</h1>
+        <div className="container mx-auto p-4">
+            <h1 className="text-4xl font-bold mb-4">Patients</h1>
             <Link href="/patients/add">
-                <button>Añadir Paciente</button>
+                <span className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Add Patient</span>
             </Link>
-            <ul>
-                {patients.map(patient => (
-                    <li key={patient.rut}>
+            <ul className="mt-4">
+                {patients.length > 0 ? patients.map(patient => (
+                    <li key={patient.rut} className="border p-4 mb-2 rounded">
                         <Link href={`/patients/${patient.rut}`}>
-                            {patient.nombre}
+                            <span className="text-blue-500 hover:underline">{patient.nombre}</span>
                         </Link>
                     </li>
-                ))}
+                )) : <p>No patients available</p>}
             </ul>
         </div>
     );

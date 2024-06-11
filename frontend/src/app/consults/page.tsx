@@ -14,19 +14,19 @@ const ConsultsPage: React.FC = () => {
     }, []);
 
     return (
-        <div>
-            <h1>Consultas</h1>
+        <div className="container mx-auto p-4">
+            <h1 className="text-4xl font-bold mb-4">Consultations</h1>
             <Link href="/consults/add">
-                <button>Añadir Consulta</button>
+                <span className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Add Consultation</span>
             </Link>
-            <ul>
-                {consults.map(consult => (
-                    <li key={consult.codigo}>
+            <ul className="mt-4">
+                {consults.length > 0 ? consults.map(consult => (
+                    <li key={consult.codigo} className="border p-4 mb-2 rounded">
                         <Link href={`/consults/${consult.codigo}`}>
-                            {consult.fechaConsulta} - {consult.horaConsulta}
+                            <span className="text-blue-500 hover:underline">{consult.fechaConsulta} - {consult.horaConsulta}</span>
                         </Link>
                     </li>
-                ))}
+                )) : <p>No consultations available</p>}
             </ul>
         </div>
     );

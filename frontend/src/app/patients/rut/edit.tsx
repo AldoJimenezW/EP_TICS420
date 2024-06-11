@@ -30,22 +30,22 @@ const EditPatientPage: React.FC = () => {
     };
 
     return (
-        <div>
-            <h1>Editar Paciente</h1>
+        <div className="container mx-auto p-4">
+            <h1 className="text-4xl font-bold mb-4">Edit Patient</h1>
             <form onSubmit={handleSubmit}>
-                <label>
+                <label className="block mb-2">
                     Nombre:
-                    <input type="text" name="nombre" value={patient.nombre} onChange={handleInputChange} />
+                    <input type="text" name="nombre" value={patient.nombre} onChange={handleInputChange} className="border p-2 rounded w-full" />
                 </label>
-                <label>
+                <label className="block mb-2">
                     Dirección:
-                    <input type="text" name="direccion" value={patient.direccion} onChange={handleInputChange} />
+                    <input type="text" name="direccion" value={patient.direccion} onChange={handleInputChange} className="border p-2 rounded w-full" />
                 </label>
-                <label>
+                <label className="block mb-4">
                     Teléfono:
-                    <input type="text" name="telefono" value={patient.telefono} onChange={handleInputChange} />
+                    <input type="text" name="telefono" value={patient.telefono} onChange={handleInputChange} className="border p-2 rounded w-full" />
                 </label>
-                <button type="submit">Guardar</button>
+                <button type="submit" className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700">Save</button>
             </form>
         </div>
     );

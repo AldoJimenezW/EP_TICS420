@@ -18,18 +18,18 @@ const ConsultDetailPage: React.FC = () => {
         }
     }, [codigo]);
 
-    if (!consult) return <div>Cargando...</div>;
+    if (!consult) return <div>Loading...</div>;
 
     return (
-        <div>
-            <h1>Consulta {consult.codigo}</h1>
-            <p>Fecha: {consult.fechaConsulta}</p>
-            <p>Hora: {consult.horaConsulta}</p>
-            <p>Médico Tratante: {consult.medico_tratante}</p>
-            <p>Número de Clínica: {consult.nro_clinica}</p>
-            <p>RUT Paciente: {consult.rut}</p>
+        <div className="container mx-auto p-4">
+            <h1 className="text-4xl font-bold mb-4">Consultation {consult.codigo}</h1>
+            <p><strong>Fecha:</strong> {consult.fechaConsulta}</p>
+            <p><strong>Hora:</strong> {consult.horaConsulta}</p>
+            <p><strong>Médico Tratante:</strong> {consult.medico_tratante}</p>
+            <p><strong>Número de Clínica:</strong> {consult.nro_clinica}</p>
+            <p><strong>RUT Paciente:</strong> {consult.rut}</p>
             <Link href={`/consults/${codigo}/edit`}>
-                <button>Editar</button>
+                <span className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-700">Edit</span>
             </Link>
         </div>
     );
